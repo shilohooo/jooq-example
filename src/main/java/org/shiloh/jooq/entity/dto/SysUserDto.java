@@ -1,45 +1,20 @@
 package org.shiloh.jooq.entity.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.shiloh.jooq.codegen.tables.pojos.SysUser;
 
 /**
  * 系统用户信息 dto
+ * <p>
+ * 可直接继承 jOOQ 生成的 Pojo，获得表中的字段
  *
  * @author shiloh
  * @date 2023/2/11 17:44
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class SysUserDto {
-    /**
-     * ID
-     */
-    private Long id;
-
-    /**
-     * 用户名
-     */
-    private String username;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 年龄
-     */
-    private Integer age;
-
-    /**
-     * 性别
-     */
-    private String sex;
-
-    /**
-     * 电子邮箱
-     */
-    private String email;
-
+public class SysUserDto extends SysUser {
     /**
      * 所在部门 ID
      */
