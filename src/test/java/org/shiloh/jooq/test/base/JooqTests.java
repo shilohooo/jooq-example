@@ -3,6 +3,7 @@ package org.shiloh.jooq.test.base;
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
 import org.junit.Before;
+import org.shiloh.jooq.codegen.tables.daos.SysUserDao;
 
 import java.io.InputStream;
 import java.sql.DriverManager;
@@ -16,6 +17,7 @@ import static org.jooq.SQLDialect.MYSQL;
  */
 public abstract class JooqTests {
     protected DSLContext dslContext;
+    protected SysUserDao sysUserDao;
 
     @Before
     public void setup() {
@@ -29,7 +31,10 @@ public abstract class JooqTests {
             final String jdbcUrl = properties.getProperty("jdbc.url");
             final String jdbcUsername = properties.getProperty("jdbc.username");
             final String jdbcPassword = properties.getProperty("jdbc.password");
-            dslContext = DSL.using(DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword), MYSQL);
+            this.dslContext = DSL.using(DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword), MYSQL);
+            // 初始化 DAO 需要先有 Configuration 对象，如果已经实例化了 DSLContext 对象，
+            // 可以使用 dslContext.configuration() 获取配置对象
+            this.sysUserDao = new SysUserDao(this.dslContext.configuration());
         } catch (Exception e) {
             e.printStackTrace();
         }
