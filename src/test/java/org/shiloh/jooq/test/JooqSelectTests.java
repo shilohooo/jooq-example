@@ -77,7 +77,7 @@ public class JooqSelectTests extends JooqTests {
                 .leftJoin(SYS_DEPT)
                 .on(SYS_USER.DEPT_ID.eq(SYS_DEPT.ID))
                 // 设置查询条件
-                .where(SYS_USER.AGE.gt(20))
+                .where(SYS_USER.AGE.le(20))
                 // 设置排序条件
                 .orderBy(SYS_USER.ID.desc())
                 // 设置分页条件
