@@ -106,6 +106,19 @@
             <generate>
               <!--              生成和表一一对应的 Pojo-->
               <pojos>true</pojos>
+              <!--
+              生成和表一一对应的接口，接口定义了getter/setter方法，并且定义了接口类型为参数的 from/into 方法。
+              通过此配置，相同表的POJO和Record之间互相转换的性能会有所提升。
+              可以看到生成的 into 方法实际调用的是来源对象的 from 方法，这个 from 方法和父级的 from(Object any) 不同的是：
+              此方法是通过主动调用 set 方法进行值设置。from(Object obj) 这类通用型的转换方法，都是通过反射进行值设置。
+              一个是直接方法调用，一个是反射调用，显然通过接口生成的 from/into 方法实现，有着更高的性能优势。
+              -->
+              <interfaces>true</interfaces>
+              <!--
+              生成与表一一对应的 DAO 层，DAO 接口定义了一些常用的CURD操作，其中有一些操作是通过主键来完成的。
+              注意如果没有主键的表，在代码生成时，是不会生成DAO的。
+              -->
+              <daos>true</daos>
             </generate>
             <database>
               <inputSchema>learn_jooq</inputSchema>
