@@ -1,4 +1,4 @@
-package org.shiloh.jooq.test;
+package org.shiloh.jooq.test.base;
 
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
@@ -20,7 +20,7 @@ public abstract class JooqTests {
     @Before
     public void setup() {
         try (
-                final InputStream inputStream = JooqSimpleTests.class
+                final InputStream inputStream = JooqTests.class
                         .getClassLoader()
                         .getResourceAsStream("jdbc.properties")
         ) {

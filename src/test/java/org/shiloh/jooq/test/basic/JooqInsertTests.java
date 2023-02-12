@@ -1,8 +1,9 @@
-package org.shiloh.jooq.test;
+package org.shiloh.jooq.test.basic;
 
 import org.jooq.UDT;
 import org.junit.Test;
 import org.shiloh.jooq.codegen.tables.records.SysUserRecord;
+import org.shiloh.jooq.test.base.JooqTests;
 
 import java.util.List;
 import java.util.stream.Collectors;

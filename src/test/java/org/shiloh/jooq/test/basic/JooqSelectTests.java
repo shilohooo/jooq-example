@@ -1,4 +1,4 @@
-package org.shiloh.jooq.test;
+package org.shiloh.jooq.test.basic;
 
 import org.jooq.Record;
 import org.jooq.Record8;
@@ -6,6 +6,7 @@ import org.jooq.Result;
 import org.junit.Test;
 import org.shiloh.jooq.codegen.tables.TSysUser;
 import org.shiloh.jooq.entity.dto.SysUserDto;
+import org.shiloh.jooq.test.base.JooqTests;
 
 import java.util.List;
 

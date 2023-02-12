@@ -1,4 +1,4 @@
-package org.shiloh.jooq.test;
+package org.shiloh.jooq.test.record;
 
 import org.jooq.Record2;
 import org.jooq.Table;
@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.shiloh.jooq.codegen.tables.pojos.SysUserPojo;
 import org.shiloh.jooq.codegen.tables.records.SysUserRecord;
 import org.shiloh.jooq.entity.dto.SysUserDto;
+import org.shiloh.jooq.test.base.JooqTests;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
