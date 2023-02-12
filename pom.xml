@@ -88,15 +88,19 @@
         <configuration>
           <jdbc>
             <driver>com.mysql.cj.jdbc.Driver</driver>
-            <url>jdbc:mysql://192.168.1.246:13306/learn_jooq?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8</url>
+            <url>jdbc:mysql://127.0.0.1:3306/learn_jooq?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8</url>
             <user>root</user>
             <password>123456</password>
           </jdbc>
           <generator>
+            <generate>
+              <!--              生成和表一一对应的 Pojo-->
+              <pojos>true</pojos>
+            </generate>
             <database>
               <inputSchema>learn_jooq</inputSchema>
               <!--              要生成哪些表对应的 Java 代码-->
-<!--              <includes>*.*</includes>-->
+              <!--              <includes>*.*</includes>-->
             </database>
             <!--            配置 JOOQ 生成的代码存放的位置-->
             <target>
