@@ -15,6 +15,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+create database if not exists learn_jooq
+charset utf8mb4 collate utf8mb4_unicode_ci;
+
 --
 -- Table structure for table `sys_dept`
 --
