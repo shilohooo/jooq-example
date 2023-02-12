@@ -1,0 +1,65 @@
+package org.shiloh.jooq.test;
+
+import org.jooq.Record;
+import org.jooq.Result;
+import org.junit.Test;
+import org.shiloh.jooq.codegen.tables.records.SysUserRecord;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.shiloh.jooq.codegen.tables.SysUser.SYS_USER;
+
+/**
+ * JOOQ 查询测试
+ *
+ * @author shiloh
+ * @date 2023/2/11 15:24
+ */
+public class JooqSimpleTests extends JooqTests {
+
+    /**
+     * JOOQ 查询测试
+     *
+     * @author shiloh
+     * @date 2023/2/11 15:30
+     */
+    @Test
+    public void testJooqQuery() {
+        // 获取 JOOQ 执行器上下文
+        // fetch 方法返回一个结果集对象 Result
+        // Result 对象实现了 List 接口，可以直接当作集合使用
+        final Result<Record> result = this.dslContext.select().from(SYS_USER)
+                .fetch();
+        assertThat(result).isNotEmpty();
+        // result.forEach(record -> {
+        //     // 获取用户信息
+        //     final long id = record.getValue(SYS_USER.ID);
+        //     final String username = record.getValue(SYS_USER.USERNAME);
+        //     System.out.printf("id = %d, username = %s\n", id, username);
+        //     System.out.println(record);
+        // });
+
+        // 将查询出来的结果集转换为表对应的 record 对象
+        // 表对应的 record 对象是 Record 对象的子类
+        final Result<SysUserRecord> sysUserRecords = result.into(SYS_USER);
+        assertThat(sysUserRecords).isNotEmpty();
+        // sysUserRecords.forEach(sysUserRecord -> {
+        //     // 转换后的对象可以直接获取到表字段对应的数据
+        //     final long id = sysUserRecord.getId();
+        //     final String username = sysUserRecord.getUsername();
+        //     System.out.printf("id = %d, username = %s\n", id, username);
+        //     System.out.println(sysUserRecord);
+        // });
+
+        // fetchInto 方法可以传入任意 record 对象的 class 类型或者表常量
+        // 这会返回任意 class 类型的List集合或指定表 record 的结果集对象
+        final List<SysUserRecord> sysUserRecordList = this.dslContext.select().from(SYS_USER)
+                .fetchInto(SysUserRecord.class);
+        assertThat(sysUserRecordList).isNotEmpty();
+
+        final Result<SysUserRecord> sysUserRecordResult = this.dslContext.select().from(SYS_USER)
+                .fetchInto(SYS_USER);
+        assertThat(sysUserRecordResult).isNotEmpty();
+    }
+}
