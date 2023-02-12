@@ -11,7 +11,7 @@ import org.jooq.Record1;
 import org.jooq.Record7;
 import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
-import org.shiloh.jooq.codegen.tables.SysUser;
+import org.shiloh.jooq.codegen.tables.TSysUser;
 
 
 /**
@@ -27,7 +27,7 @@ import org.shiloh.jooq.codegen.tables.SysUser;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SysUserRecord extends UpdatableRecordImpl<SysUserRecord> implements Record7<Long, String, String, Integer, String, String, Long> {
 
-    private static final long serialVersionUID = 1085938477;
+    private static final long serialVersionUID = 1106344455;
 
     /**
      * Setter for <code>learn_jooq.sys_user.id</code>. ID，自增主键
@@ -152,37 +152,37 @@ public class SysUserRecord extends UpdatableRecordImpl<SysUserRecord> implements
 
     @Override
     public Field<Long> field1() {
-        return SysUser.SYS_USER.ID;
+        return TSysUser.SYS_USER.ID;
     }
 
     @Override
     public Field<String> field2() {
-        return SysUser.SYS_USER.USERNAME;
+        return TSysUser.SYS_USER.USERNAME;
     }
 
     @Override
     public Field<String> field3() {
-        return SysUser.SYS_USER.PASSWORD;
+        return TSysUser.SYS_USER.PASSWORD;
     }
 
     @Override
     public Field<Integer> field4() {
-        return SysUser.SYS_USER.AGE;
+        return TSysUser.SYS_USER.AGE;
     }
 
     @Override
     public Field<String> field5() {
-        return SysUser.SYS_USER.SEX;
+        return TSysUser.SYS_USER.SEX;
     }
 
     @Override
     public Field<String> field6() {
-        return SysUser.SYS_USER.EMAIL;
+        return TSysUser.SYS_USER.EMAIL;
     }
 
     @Override
     public Field<Long> field7() {
-        return SysUser.SYS_USER.DEPT_ID;
+        return TSysUser.SYS_USER.DEPT_ID;
     }
 
     @Override
@@ -317,14 +317,14 @@ public class SysUserRecord extends UpdatableRecordImpl<SysUserRecord> implements
      * Create a detached SysUserRecord
      */
     public SysUserRecord() {
-        super(SysUser.SYS_USER);
+        super(TSysUser.SYS_USER);
     }
 
     /**
      * Create a detached, initialised SysUserRecord
      */
     public SysUserRecord(Long id, String username, String password, Integer age, String sex, String email, Long deptId) {
-        super(SysUser.SYS_USER);
+        super(TSysUser.SYS_USER);
 
         set(0, id);
         set(1, username);

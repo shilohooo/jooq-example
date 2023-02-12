@@ -32,6 +32,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-codegen</artifactId>
+      <version>${jooq.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
@@ -93,6 +99,10 @@
             <password>123456</password>
           </jdbc>
           <generator>
+            <!--            自定义 jOOQ 生成的类文件的命名策略-->
+            <strategy>
+              <name>org.shiloh.jooq.config.CustomGeneratorStrategy</name>
+            </strategy>
             <generate>
               <!--              生成和表一一对应的 Pojo-->
               <pojos>true</pojos>

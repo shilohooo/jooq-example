@@ -9,8 +9,8 @@ import javax.annotation.Generated;
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
-import org.shiloh.jooq.codegen.tables.SysDept;
-import org.shiloh.jooq.codegen.tables.SysUser;
+import org.shiloh.jooq.codegen.tables.TSysDept;
+import org.shiloh.jooq.codegen.tables.TSysUser;
 
 
 /**
@@ -38,7 +38,7 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
-        public static Index SYS_DEPT_PRIMARY = Internal.createIndex("PRIMARY", SysDept.SYS_DEPT, new OrderField[] { SysDept.SYS_DEPT.ID }, true);
-        public static Index SYS_USER_PRIMARY = Internal.createIndex("PRIMARY", SysUser.SYS_USER, new OrderField[] { SysUser.SYS_USER.ID }, true);
+        public static Index SYS_DEPT_PRIMARY = Internal.createIndex("PRIMARY", TSysDept.SYS_DEPT, new OrderField[] { TSysDept.SYS_DEPT.ID }, true);
+        public static Index SYS_USER_PRIMARY = Internal.createIndex("PRIMARY", TSysUser.SYS_USER, new OrderField[] { TSysUser.SYS_USER.ID }, true);
     }
 }

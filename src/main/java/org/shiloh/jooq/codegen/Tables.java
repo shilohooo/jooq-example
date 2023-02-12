@@ -6,8 +6,8 @@ package org.shiloh.jooq.codegen;
 
 import javax.annotation.Generated;
 
-import org.shiloh.jooq.codegen.tables.SysDept;
-import org.shiloh.jooq.codegen.tables.SysUser;
+import org.shiloh.jooq.codegen.tables.TSysDept;
+import org.shiloh.jooq.codegen.tables.TSysUser;
 
 
 /**
@@ -26,10 +26,10 @@ public class Tables {
     /**
      * 系统部门信息表
      */
-    public static final SysDept SYS_DEPT = SysDept.SYS_DEPT;
+    public static final TSysDept SYS_DEPT = TSysDept.SYS_DEPT;
 
     /**
      * 系统用户信息表
      */
-    public static final SysUser SYS_USER = SysUser.SYS_USER;
+    public static final TSysUser SYS_USER = TSysUser.SYS_USER;
 }

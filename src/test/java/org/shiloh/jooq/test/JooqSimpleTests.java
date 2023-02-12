@@ -8,7 +8,7 @@ import org.shiloh.jooq.codegen.tables.records.SysUserRecord;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.shiloh.jooq.codegen.tables.SysUser.SYS_USER;
+import static org.shiloh.jooq.codegen.tables.TSysUser.SYS_USER;
 
 /**
  * JOOQ 查询测试

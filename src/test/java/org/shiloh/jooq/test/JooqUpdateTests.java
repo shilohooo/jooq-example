@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.shiloh.jooq.codegen.tables.SysUser.SYS_USER;
+import static org.shiloh.jooq.codegen.tables.TSysUser.SYS_USER;
 
 /**
  * JOOQ 数据更新操作测试

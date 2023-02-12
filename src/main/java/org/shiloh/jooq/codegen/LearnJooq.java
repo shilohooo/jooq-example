@@ -13,8 +13,8 @@ import javax.annotation.Generated;
 import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
-import org.shiloh.jooq.codegen.tables.SysDept;
-import org.shiloh.jooq.codegen.tables.SysUser;
+import org.shiloh.jooq.codegen.tables.TSysDept;
+import org.shiloh.jooq.codegen.tables.TSysUser;
 
 
 /**
@@ -30,7 +30,7 @@ import org.shiloh.jooq.codegen.tables.SysUser;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LearnJooq extends SchemaImpl {
 
-    private static final long serialVersionUID = -1403413515;
+    private static final long serialVersionUID = 521908399;
 
     /**
      * The reference instance of <code>learn_jooq</code>
@@ -40,12 +40,12 @@ public class LearnJooq extends SchemaImpl {
     /**
      * 系统部门信息表
      */
-    public final SysDept SYS_DEPT = org.shiloh.jooq.codegen.tables.SysDept.SYS_DEPT;
+    public final TSysDept SYS_DEPT = org.shiloh.jooq.codegen.tables.TSysDept.SYS_DEPT;
 
     /**
      * 系统用户信息表
      */
-    public final SysUser SYS_USER = org.shiloh.jooq.codegen.tables.SysUser.SYS_USER;
+    public final TSysUser SYS_USER = org.shiloh.jooq.codegen.tables.TSysUser.SYS_USER;
 
     /**
      * No further instances allowed
@@ -69,7 +69,7 @@ public class LearnJooq extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
-            SysDept.SYS_DEPT,
-            SysUser.SYS_USER);
+            TSysDept.SYS_DEPT,
+            TSysUser.SYS_USER);
     }
 }

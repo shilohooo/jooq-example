@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.shiloh.jooq.codegen.tables.SysUser.SYS_USER;
+import static org.shiloh.jooq.codegen.tables.TSysUser.SYS_USER;
 
 /**
  * Jooq Insert 测试

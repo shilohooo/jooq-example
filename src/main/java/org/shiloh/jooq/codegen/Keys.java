@@ -9,8 +9,8 @@ import javax.annotation.Generated;
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
-import org.shiloh.jooq.codegen.tables.SysDept;
-import org.shiloh.jooq.codegen.tables.SysUser;
+import org.shiloh.jooq.codegen.tables.TSysDept;
+import org.shiloh.jooq.codegen.tables.TSysUser;
 import org.shiloh.jooq.codegen.tables.records.SysDeptRecord;
 import org.shiloh.jooq.codegen.tables.records.SysUserRecord;
 
@@ -53,12 +53,12 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
-        public static Identity<SysDeptRecord, Long> IDENTITY_SYS_DEPT = Internal.createIdentity(SysDept.SYS_DEPT, SysDept.SYS_DEPT.ID);
-        public static Identity<SysUserRecord, Long> IDENTITY_SYS_USER = Internal.createIdentity(SysUser.SYS_USER, SysUser.SYS_USER.ID);
+        public static Identity<SysDeptRecord, Long> IDENTITY_SYS_DEPT = Internal.createIdentity(TSysDept.SYS_DEPT, TSysDept.SYS_DEPT.ID);
+        public static Identity<SysUserRecord, Long> IDENTITY_SYS_USER = Internal.createIdentity(TSysUser.SYS_USER, TSysUser.SYS_USER.ID);
     }
 
     private static class UniqueKeys0 {
-        public static final UniqueKey<SysDeptRecord> KEY_SYS_DEPT_PRIMARY = Internal.createUniqueKey(SysDept.SYS_DEPT, "KEY_sys_dept_PRIMARY", SysDept.SYS_DEPT.ID);
-        public static final UniqueKey<SysUserRecord> KEY_SYS_USER_PRIMARY = Internal.createUniqueKey(SysUser.SYS_USER, "KEY_sys_user_PRIMARY", SysUser.SYS_USER.ID);
+        public static final UniqueKey<SysDeptRecord> KEY_SYS_DEPT_PRIMARY = Internal.createUniqueKey(TSysDept.SYS_DEPT, "KEY_sys_dept_PRIMARY", TSysDept.SYS_DEPT.ID);
+        public static final UniqueKey<SysUserRecord> KEY_SYS_USER_PRIMARY = Internal.createUniqueKey(TSysUser.SYS_USER, "KEY_sys_user_PRIMARY", TSysUser.SYS_USER.ID);
     }
 }

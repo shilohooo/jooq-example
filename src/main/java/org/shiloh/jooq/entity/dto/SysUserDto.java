@@ -2,7 +2,7 @@ package org.shiloh.jooq.entity.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.shiloh.jooq.codegen.tables.pojos.SysUser;
+import org.shiloh.jooq.codegen.tables.pojos.SysUserPojo;
 
 /**
  * 系统用户信息 dto
@@ -14,7 +14,7 @@ import org.shiloh.jooq.codegen.tables.pojos.SysUser;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class SysUserDto extends SysUser {
+public class SysUserDto extends SysUserPojo {
     /**
      * 所在部门 ID
      */

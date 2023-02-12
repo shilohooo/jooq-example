@@ -11,7 +11,7 @@ import org.jooq.Record1;
 import org.jooq.Record3;
 import org.jooq.Row3;
 import org.jooq.impl.UpdatableRecordImpl;
-import org.shiloh.jooq.codegen.tables.SysDept;
+import org.shiloh.jooq.codegen.tables.TSysDept;
 
 
 /**
@@ -27,7 +27,7 @@ import org.shiloh.jooq.codegen.tables.SysDept;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SysDeptRecord extends UpdatableRecordImpl<SysDeptRecord> implements Record3<Long, String, String> {
 
-    private static final long serialVersionUID = -1996763607;
+    private static final long serialVersionUID = -698838041;
 
     /**
      * Setter for <code>learn_jooq.sys_dept.id</code>. ID，自增主键
@@ -96,17 +96,17 @@ public class SysDeptRecord extends UpdatableRecordImpl<SysDeptRecord> implements
 
     @Override
     public Field<Long> field1() {
-        return SysDept.SYS_DEPT.ID;
+        return TSysDept.SYS_DEPT.ID;
     }
 
     @Override
     public Field<String> field2() {
-        return SysDept.SYS_DEPT.NAME;
+        return TSysDept.SYS_DEPT.NAME;
     }
 
     @Override
     public Field<String> field3() {
-        return SysDept.SYS_DEPT.TEL;
+        return TSysDept.SYS_DEPT.TEL;
     }
 
     @Override
@@ -173,14 +173,14 @@ public class SysDeptRecord extends UpdatableRecordImpl<SysDeptRecord> implements
      * Create a detached SysDeptRecord
      */
     public SysDeptRecord() {
-        super(SysDept.SYS_DEPT);
+        super(TSysDept.SYS_DEPT);
     }
 
     /**
      * Create a detached, initialised SysDeptRecord
      */
     public SysDeptRecord(Long id, String name, String tel) {
-        super(SysDept.SYS_DEPT);
+        super(TSysDept.SYS_DEPT);
 
         set(0, id);
         set(1, name);

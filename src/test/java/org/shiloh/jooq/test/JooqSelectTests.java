@@ -4,14 +4,14 @@ import org.jooq.Record;
 import org.jooq.Record8;
 import org.jooq.Result;
 import org.junit.Test;
-import org.shiloh.jooq.codegen.tables.SysUser;
+import org.shiloh.jooq.codegen.tables.TSysUser;
 import org.shiloh.jooq.entity.dto.SysUserDto;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.shiloh.jooq.codegen.tables.SysDept.SYS_DEPT;
-import static org.shiloh.jooq.codegen.tables.SysUser.SYS_USER;
+import static org.shiloh.jooq.codegen.tables.TSysDept.SYS_DEPT;
+import static org.shiloh.jooq.codegen.tables.TSysUser.SYS_USER;
 
 /**
  * JOOQ 查询数据测试
@@ -42,7 +42,7 @@ public class JooqSelectTests extends JooqTests {
                 .from(SYS_USER)
                 .fetch();
         assertThat(result.isNotEmpty()).isTrue();
-        final List<SysUser> sysUsers = result.into(SysUser.class);
+        final List<TSysUser> sysUsers = result.into(TSysUser.class);
         assertThat(sysUsers).isNotEmpty();
 
         // 条件查询
@@ -51,7 +51,7 @@ public class JooqSelectTests extends JooqTests {
                 .where(SYS_USER.AGE.isNotNull())
                 .fetch();
         assertThat(ageNotNullResult.isNotEmpty()).isTrue();
-        final List<SysUser> ageNotNullUsers = ageNotNullResult.into(SysUser.class);
+        final List<TSysUser> ageNotNullUsers = ageNotNullResult.into(TSysUser.class);
         assertThat(ageNotNullUsers).isNotEmpty();
     }
 
