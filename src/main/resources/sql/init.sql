@@ -18,6 +18,8 @@
 create database if not exists learn_jooq
 charset utf8mb4 collate utf8mb4_unicode_ci;
 
+use learn_jooq;
+
 --
 -- Table structure for table `sys_dept`
 --
