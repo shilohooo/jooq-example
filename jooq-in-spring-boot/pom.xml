@@ -2,95 +2,51 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>jooq-mysql-example</artifactId>
+    <groupId>org.shiloh</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.shiloh</groupId>
-  <artifactId>jooq-mysql-example</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <modules>
-    <module>jooq-in-spring</module>
-    <module>jooq-in-spring-boot</module>
-  </modules>
+  <artifactId>jooq-in-spring-boot</artifactId>
 
   <properties>
-    <java.version>1.8</java.version>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <jooq.version>3.12.3</jooq.version>
+    <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.30</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.jooq</groupId>
-      <artifactId>jooq</artifactId>
-      <version>${jooq.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jooq</groupId>
-      <artifactId>jooq-codegen</artifactId>
-      <version>${jooq.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>3.23.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.36</version>
-    </dependency>
-
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.2.11</version>
-    </dependency>
-
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>1.2.11</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jooq</artifactId>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
       <!-- JOOQ 代码生成器插件配置-->
       <plugin>
@@ -107,7 +63,7 @@
           <generator>
             <!--            自定义 jOOQ 生成的类文件的命名策略-->
             <strategy>
-              <name>org.shiloh.jooq.config.CustomGeneratorStrategy</name>
+              <name>org.shiloh.config.CustomGeneratorStrategy</name>
             </strategy>
             <generate>
               <!--              生成和表一一对应的 Pojo-->
@@ -125,6 +81,11 @@
               注意如果没有主键的表，在代码生成时，是不会生成DAO的。
               -->
               <daos>true</daos>
+              <!--
+              自动为 DAO 类添加 Spring 的 @Repository 注解将 DAO 声明为 Bean，
+              并且会自动在带参构造器XxxDao(Configuration configuration) 上添加 @Autowired 注解
+              -->
+              <springAnnotations>true</springAnnotations>
             </generate>
             <database>
               <inputSchema>learn_jooq</inputSchema>
@@ -134,7 +95,7 @@
             <!--            配置 JOOQ 生成的代码存放的位置-->
             <target>
               <packageName>org.shiloh.jooq.codegen</packageName>
-              <directory>src/main/java</directory>
+              <directory>./src/main/java</directory>
             </target>
           </generator>
         </configuration>

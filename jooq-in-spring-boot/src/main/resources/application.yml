@@ -1,0 +1,11 @@
+spring:
+  # spring-boot-starter-jooq 自动配置了 org.jooq.Configuration 和 org.jooq.DSLContext 对象。
+  # 只需要在 src/main/resources/application.yml 内写好数据源相关配置，其他的一切都可以交给Spring Boot进行处理
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:13306/learn_jooq?serverTimezone=GMT%2B8&useUnicode=true&useSSL=false&characterEncoding=utf8
+    username: root
+    password: 123456
+logging:
+  level:
+    root: debug
