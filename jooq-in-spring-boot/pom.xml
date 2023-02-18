@@ -61,6 +61,8 @@
             <password>123456</password>
           </jdbc>
           <generator>
+            <!--            使用自定义的 jOOQ 代码生成器-->
+            <name>org.shiloh.generator.CustomJooqJavaGenerator</name>
             <!--            自定义 jOOQ 生成的类文件的命名策略-->
             <strategy>
               <name>org.shiloh.config.CustomGeneratorStrategy</name>
